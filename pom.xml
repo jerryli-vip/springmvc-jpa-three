@@ -34,7 +34,7 @@
 		  <groupId>junit</groupId>
 		  <artifactId>junit</artifactId>
 		  <version>4.12</version>
-		  <scope>test</scope>
+		  <!-- <scope>test</scope> -->
 		</dependency>
 
 		<!-- Spring begin -->
@@ -75,6 +75,11 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.9.Final</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-validator</artifactId>
+		    <version>4.3.0.Final</version>
 		</dependency>
 		<!-- Hibernate end -->
 
@@ -130,7 +135,7 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>3.0.1</version>
 		</dependency>
 		
 		<dependency>
