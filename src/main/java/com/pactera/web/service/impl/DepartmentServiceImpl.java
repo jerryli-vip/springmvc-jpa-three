@@ -29,7 +29,6 @@ public class DepartmentServiceImpl implements DepartmentService {
 	DepartmentDAO dao;
 
 	@Value("#{configProperties['page.size']}")
-	// @Value("${page.size}")
 	private String pageSize;
 
 	@Transactional(rollbackFor = ServiceException.class)
