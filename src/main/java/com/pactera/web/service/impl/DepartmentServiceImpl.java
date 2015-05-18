@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -27,9 +27,9 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Resource
 	DepartmentDAO dao;
-
-	@Value("#{configProperties['page.size']}")
-	private String pageSize;
+	
+	@Resource
+	private Environment env;
 
 	@Transactional(rollbackFor = ServiceException.class)
 	public Department save(Department dept) throws ServiceException {
@@ -117,6 +117,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 			// 3. pagination
 			Integer pagesize = 0;
 			try {
+				final String pageSize = env.getProperty("page.size");
 				pagesize = Integer.valueOf(pageSize);
 				pagination.setPageSize(pagesize);
 			} catch (Exception e) {
